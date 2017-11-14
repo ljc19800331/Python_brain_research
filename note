@@ -1,0 +1,43 @@
+Code structure:
+
+Structure for the 2D non-rotation mapping
+1.load the 3D brain_slice stl file -- for x y z data values
+2.load the 3D point cloud -- for x y z data values
+3.Convert the 3D brain stl to 2D image
+4.Convert the 3D point cloud to 2D image
+5.Map the two image based on cross-correlation (Goal is to map the two cooordinate system)
+6.Combine the above code to the TumorCNC code
+
+Class 2D_nonrotate_map:
+properties:
+
+    #3D brain_slice stl file
+    #3D brain scan stl pointcloud
+Methods:
+    def read x y z coordinate data, input:  txt files, output:
+    def vtkPointcloud data reading
+    def Pt2Img
+    def CrosCorrela
+
+Structure for the 3D rigid transform mapping
+1.load the stl file
+2.load the point cloud data
+3.Render the two files in the platform/stage
+4.Coarse registration manually
+5.Rigid transform registration using ICP method
+
+Possible method for registration:
+1.pycpd 0.1
+2.ICP
+3.Non-rigid transform
+4.Rigid transform
+5.3D slicer
+6.Manually choose the point sets for mapping
+7.numpy stl processing
+8.360° Rotation + Continuous Rotation Robotic Servo
+9.servo shield for the rotation circle
+10.realtime camera system
+
+Question:
+1.natural interpolation problem
+2.Install the python-pcl environment

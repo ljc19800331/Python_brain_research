@@ -1,9 +1,4 @@
-# Test the 3D rigid transform algorithm
-
 import os
-
-#data_path = 'C:/Users/maguangshen/PycharmProjects/Brain research/vtkBodyScan/brain data files'
-
 import vtk
 import numpy
 from stl import mesh
@@ -46,8 +41,8 @@ def readstl(filename):
 
 def main():
     filename = 'brain_slice.stl'
-    #readstl(filename)
     mesh = ReadStl(filename)
+    readstl(filename)
 
 if __name__ == '__main__':
     main()

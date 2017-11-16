@@ -44,7 +44,7 @@ class TwoD_nonrotate_map:
 
     def scan_coordinates(self):
         # read the x y z coordinates from scan txt files
-        sys.path.append('C:/Users/maguangshen/PycharmProjects/Brain research/scan_918/L1/')
+        # sys.path.append('C:/Users/maguangshen/PycharmProjects/Brain research/scan_918/L1/')
         a_x = []
         a_y = []
         a_z = []
@@ -69,6 +69,17 @@ class TwoD_nonrotate_map:
         for line in scan_L1z:
             a_z = line.split()
             scan_z.append(float(a_z[0]))
+
+        a = scan_x
+        b = [min(scan_x)] * len(scan_x)
+        scan_x = [a - b for a, b in zip(a, b)]
+        a = scan_y
+        b = [min(scan_y)] * len(scan_y)
+        scan_y = [a - b for a, b in zip(a, b)]
+        a = scan_z
+        b = [min(scan_z)] * len(scan_z)
+        scan_z = [a - b for a, b in zip(a, b)]
+
         scan_L1x.close()
         scan_L1y.close()
         scan_L1z.close()
@@ -136,9 +147,12 @@ class VtkPointCloud:
         self.vtkPolyData.GetPointData().SetActiveScalars('DepthArray')
 
 if __name__ == '__main__':
-    txtscan_x = input('The txt file name of x')
-    txtscan_y = input('The txt file name of y')
-    txtscan_z = input('The txt file name of z')
+    #txtscan_x = input('The txt file name of x')
+    #txtscan_y = input('The txt file name of y')
+    #txtscan_z = input('The txt file name of z')
+    txtscan_x = 'Scan_x'
+    txtscan_y = 'Scan_y'
+    txtscan_z = 'Scan_z'
     pt = TwoD_nonrotate_map(txtscan_x,txtscan_y,txtscan_z)
     pt_scan,scan_x,scan_y,scan_z = pt.scan_coordinates()
     pt_brain,brain_x,brain_y,brain_z = pt.Brain_coordinates()

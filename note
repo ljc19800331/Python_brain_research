@@ -1,5 +1,10 @@
 Code structure:
 
+Problem 1:
+The problem with the algorithm to detect the method
+Problem 2:
+Noise detection
+
 Structure for the 2D non-rotation mapping
 1.load the 3D brain_slice stl file -- for x y z data values
 2.load the 3D point cloud -- for x y z data values
